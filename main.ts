@@ -10,6 +10,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     } else {
         projectile = sprites.createProjectileFromSprite(assets.image`vikingStar`, Main, 100, 5)
     }
+    music.pewPew.play()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     info.changeScoreBy(70)
@@ -62,6 +63,7 @@ function initializeLvl1 () {
     tiles.placeOnTile(Enemy1, tiles.getTileLocation(16, 19))
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Chat1`, function (sprite, location) {
+    music.baDing.play()
     game.showLongText("Watch out for lava! If you fall into it you will lose a life and have to respawn at the beginning of the level.", DialogLayout.Bottom)
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
@@ -97,6 +99,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`chest2`, function (sprite, lo
     game.showLongText("Great job! You have gotten a treasure chest.", DialogLayout.Bottom)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Chat3`, function (sprite, location) {
+    music.baDing.play()
     game.showLongText("Watch out for the dragons! If it hits you, you will lose a life!", DialogLayout.Bottom)
     game.showLongText("Press the spacebar or \"a\" to throw a viking star and eliminate them!", DialogLayout.Bottom)
     tiles.setTileAt(location, assets.tile`transparency16`)
@@ -107,6 +110,7 @@ function createDragon2 () {
     Enemy2.vx = -50
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`chat2`, function (sprite, location) {
+    music.baDing.play()
     game.showLongText("Here is the special battle-star, which can be found in each level! Acquiring this will give you 70 extra points.", DialogLayout.Bottom)
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
@@ -124,6 +128,7 @@ function createPlayer () {
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.warmRadial, 500)
     sprite.destroy(effects.coolRadial, 500)
+    music.zapped.play()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     timer.throttle("action", 500, function () {
