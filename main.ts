@@ -10,12 +10,14 @@ function createDragon4 () {
     Enemy4.vx = -50
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (controller.left.isPressed()) {
-        projectile = sprites.createProjectileFromSprite(assets.image`vikingStar`, Main, -100, 5)
-    } else {
-        projectile = sprites.createProjectileFromSprite(assets.image`vikingStar`, Main, 100, 5)
-    }
-    music.pewPew.play()
+    timer.throttle("action", 500, function () {
+        if (controller.left.isPressed()) {
+            projectile = sprites.createProjectileFromSprite(assets.image`vikingStar`, Main, -100, 5)
+        } else {
+            projectile = sprites.createProjectileFromSprite(assets.image`vikingStar`, Main, 100, 5)
+        }
+        music.pewPew.play()
+    })
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     info.changeScoreBy(70)
@@ -28,6 +30,7 @@ scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.hazardLava1, function (spr
     }
 })
 function initializeLvl2 () {
+    music.playMelody("C5 B C5 B C5 E D C ", 250)
     scene.setBackgroundImage(assets.image`backdrop2`)
     tiles.setTilemap(tilemap`lvl2`)
     tiles.placeOnTile(Main, tiles.getTileLocation(1, 25))
@@ -54,12 +57,18 @@ function createDragon5 () {
     Enemy5.ay = 500
     Enemy5.vx = -50
 }
+function createDragon6 () {
+    Enemy6 = sprites.create(assets.image`dragonEnemy6`, SpriteKind.Enemy)
+    Enemy6.ay = 500
+    Enemy6.vx = -50
+}
 scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.hazardLava0, function (sprite, location) {
     if (sprite.isHittingTile(CollisionDirection.Bottom)) {
         sprite.vy = -5 * pixelsToMeters
     }
 })
 function initializeLvl1 () {
+    music.playMelody("- D E F B C5 - - ", 250)
     scene.setBackgroundImage(assets.image`backdrop1`)
     tiles.setTilemap(tilemap`lvl1`)
     game.showLongText("Welcome to Viking CLash!", DialogLayout.Bottom)
@@ -73,6 +82,7 @@ function initializeLvl1 () {
     tiles.placeOnTile(Enemy1, tiles.getTileLocation(16, 19))
 }
 function initializeLvl4 () {
+    music.playMelody("- G G G C5 C5 C C ", 250)
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -208,6 +218,8 @@ function initializeLvl4 () {
     tiles.placeOnTile(Enemy4, tiles.getTileLocation(28, 3))
     createDragon5()
     tiles.placeOnTile(Enemy5, tiles.getTileLocation(29, 26))
+    createDragon6()
+    tiles.placeOnTile(Enemy6, tiles.getTileLocation(8, 21))
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Chat1`, function (sprite, location) {
     music.baDing.play()
@@ -221,6 +233,14 @@ scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
     if (sprite.isHittingTile(CollisionDirection.Right)) {
         sprite.vx = -50
     }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`confetti`, function (sprite, location) {
+    music.playMelody("G - G - G C5 - C5 ", 300)
+    timer.background(function () {
+        game.showLongText("Wahoo! You have gotten the last treasure chest! That is all of them!", DialogLayout.Bottom)
+        game.showLongText("Now you are the richest ever! Good game.", DialogLayout.Bottom)
+    })
+    game.over(true, effects.confetti)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
     info.changeLifeBy(-1)
@@ -243,7 +263,8 @@ function createDragon3 () {
     Enemy3.vx = -50
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`chest2`, function (sprite, location) {
-    game.showLongText("Great job! You have gotten a treasure chest.", DialogLayout.Bottom)
+    game.showLongText("Great job! You have gotten another treasure chest.", DialogLayout.Bottom)
+    initializeLvl3()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Chat3`, function (sprite, location) {
     music.baDing.play()
@@ -273,7 +294,8 @@ function createPlayer () {
     scene.cameraFollowSprite(Main)
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`chest3`, function (sprite, location) {
-    game.showLongText("Great job! You have gotten a treasure chest.", DialogLayout.Bottom)
+    game.showLongText("Great job! You have gotten the third treasure chest.", DialogLayout.Bottom)
+    initializeLvl4()
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.warmRadial, 500)
@@ -284,9 +306,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     timer.throttle("action", 500, function () {
         music.powerDown.play()
         info.changeLifeBy(-1)
+        Main.vy = -5 * pixelsToMeters
         scene.cameraShake(4, 500)
     })
 })
+let Enemy6: Sprite = null
 let Enemy5: Sprite = null
 let Enemy3: Sprite = null
 let Enemy2: Sprite = null
