@@ -39,6 +39,21 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "backdrop2"
     },
+    "image8": {
+        "data": "hwQQABAAAAAAAAAAwPwPAAAAAABsmfnMAAAAwJlElsEAAABsmUaVzAAAAJyZZpbPAAAAnJlmls8AAACcmUaVwQAAAJyZRJbMAMzMbJmZmcnAbGbMmZmZxsCZZsZsmWnPnJlmZsb8/8acycxmZmZmxpwMwGxmZmYMbAwAzGxmxgzMAAAAzMwMAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "dragonEnemy4"
+    },
+    "image9": {
+        "data": "hwQQABAAAAAAAAAAAMz/AAAAAADAlpnMAAAAAJxJZMEAAADAlmlUzAAAAMCZaWbPAAAAwJlpZs8AAADAmWlUwQAAAMCZSWTMAADMzJaZmckAwGxmnJmZxgDAmWbMlpnPAJyZZmbM/8YAnMnMZmZmxgCcDMBmZmYMAGwMAMxmZgwAzAAAwMzMAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "dragonEnemy5"
+    },
+    "image10": {
+        "data": "hwQQABAAAAAAAAAAAMz/AAAAAADAdnfMAAAAAHzHbMEAAADAdmf8zAAAAMB3Z2bPAAAAwHdnZs8AAADAd2f8wQAAAMB3x2zMAADMzHZ3d8cAwGxmfHd3xgDAd2bMdnfPAHx3ZmbM/8YAfMfMZmZmxgB8DMBmZmYMAGwMAMxmZgwAzAAAwMzMAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "dragonEnemy6"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

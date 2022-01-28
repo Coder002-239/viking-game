@@ -467,6 +467,63 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 `;
+            case "image8":
+            case "dragonEnemy4":return img`
+. . . . . . . . . . . c c c c c 
+. . . . . . . . . c c 9 9 9 6 c 
+. . . . . . . . c c 9 9 9 c c . 
+. . . . . . . . c 6 9 9 c . . . 
+. . . . . . . . c 6 6 6 c . . . 
+. . . . . . . . c 6 6 6 c c . . 
+. . . c c c c c c c 6 6 6 c c . 
+. . c 6 9 9 9 9 6 c c 6 6 6 c . 
+. c 9 9 9 9 9 9 9 9 c 6 6 6 c c 
+c 6 9 9 9 9 9 9 9 9 6 c 6 6 6 c 
+c 9 4 6 6 6 6 4 9 9 9 c 6 6 6 c 
+f 9 4 4 6 6 4 4 9 9 9 f 6 6 6 c 
+f 9 6 5 6 6 5 6 9 9 9 f 6 6 6 c 
+. f 9 9 9 9 9 9 9 9 6 f 6 6 c . 
+. c 1 c f f 1 c 9 6 f 6 6 c c . 
+. c c c c c c c c c c c c . . . 
+`;
+            case "image9":
+            case "dragonEnemy5":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . c c c c c 
+. . . . . . . . . c c 9 9 9 6 c 
+. . . . . . . . c c 9 9 9 c c . 
+. . . . . . . . c 6 9 9 c . . . 
+. . . . . . . . c 6 6 6 c . . . 
+. . . c c c c c c 6 6 6 c c . . 
+. . c 6 9 9 9 9 6 c c 6 6 6 c . 
+. c 9 9 9 9 9 9 9 9 c 6 6 6 c c 
+c 6 9 9 9 9 9 9 9 9 6 c 6 6 6 c 
+c 9 4 6 6 6 6 4 9 9 9 c 6 6 6 c 
+f 9 4 4 6 6 4 4 9 9 9 f 6 6 6 c 
+f 9 6 5 6 6 5 6 9 9 9 f 6 6 6 c 
+. c 1 c f f 1 c 9 6 f 6 6 c c . 
+. c c c c c c c c c c c c . . . 
+`;
+            case "image10":
+            case "dragonEnemy6":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . c c c c c 
+. . . . . . . . . c c 7 7 7 6 c 
+. . . . . . . . c c 7 7 7 c c . 
+. . . . . . . . c 6 7 7 c . . . 
+. . . . . . . . c 6 6 6 c . . . 
+. . . c c c c c c 6 6 6 c c . . 
+. . c 6 7 7 7 7 6 c c 6 6 6 c . 
+. c 7 7 7 7 7 7 7 7 c 6 6 6 c c 
+c 6 7 7 7 7 7 7 7 7 6 c 6 6 6 c 
+c 7 c 6 6 6 6 c 7 7 7 c 6 6 6 c 
+f 7 c c 6 6 c c 7 7 7 f 6 6 6 c 
+f 7 6 f 6 6 f 6 7 7 7 f 6 6 6 c 
+. c 1 c f f 1 c 7 6 f 6 6 c c . 
+. c c c c c c c c c c c c . . . 
+`;
         }
         return null;
     })
